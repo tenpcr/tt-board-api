@@ -35,14 +35,14 @@ func GetBoards(c *gin.Context) {
 
 	cursor, err := models.TaskBoardsCollection().Aggregate(ctx, pipeline)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch board list"})
 		return
 	}
 
 	var taskBoards []models.TaskBoard
 
 	if err := cursor.All(ctx, &taskBoards); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse board list"})
 		return
 	}
 
@@ -136,14 +136,14 @@ func GetBoardTasks(c *gin.Context) {
 
 	cursor, err := models.TaskBoardsCollection().Aggregate(ctx, pipeline)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch board list"})
 		return
 	}
 
 	var boardTasks []models.BoardTasks
 
 	if err := cursor.All(ctx, &boardTasks); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse board list"})
 		return
 	}
 

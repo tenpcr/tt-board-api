@@ -100,14 +100,14 @@ func GetTasks(c *gin.Context) {
 
 	cursor, err := models.TasksCollection().Aggregate(ctx, pipeline)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch task list"})
 		return
 	}
 
 	var tasks []models.Task
 
 	if err := cursor.All(ctx, &tasks); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse task list"})
 		return
 	}
 
@@ -191,14 +191,14 @@ func GetTaskById(c *gin.Context) {
 
 	cursor, err := models.TasksCollection().Aggregate(ctx, pipeline)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch task list"})
 		return
 	}
 
 	var tasks []models.Task
 
 	if err := cursor.All(ctx, &tasks); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse task list"})
 		return
 	}
 
@@ -296,14 +296,14 @@ func GetTaskBoards(c *gin.Context) {
 
 	cursor, err := models.TaskBoardsCollection().Aggregate(ctx, pipeline)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch board list"})
 		return
 	}
 
 	var taskBoards []models.TaskBoard
 
 	if err := cursor.All(ctx, &taskBoards); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse board list"})
 		return
 	}
 
@@ -327,14 +327,14 @@ func GetTaskTypes(c *gin.Context) {
 
 	cursor, err := models.TaskTypesCollection().Aggregate(ctx, pipeline)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch type list"})
 		return
 	}
 
 	var taskTypes []models.TaskType
 
 	if err := cursor.All(ctx, &taskTypes); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse radio list"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse type list"})
 		return
 	}
 
